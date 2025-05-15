@@ -3,7 +3,9 @@ import 'package:flutter_taskone/add_item/item.dart';
 import 'package:flutter_taskone/add_item/item_model.dart';
 import 'package:flutter_taskone/details/details_screen/details_page.dart';
 import 'package:flutter_taskone/add_item/add_item_screen.dart';
+import 'package:flutter_taskone/favorite/favorite_model.dart';
 import 'package:provider/provider.dart';
+import '../details/details_widget/favorite_widget.dart';
 import '../profile/profile_page/profile_page.dart';
 import '../profile/user_model.dart';
 
@@ -77,10 +79,15 @@ class DashboardScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(items.items[index].title),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.favorite),
-                        ),
+                        FavoriteWidget( index: items.items.indexOf(items.items[index]),),
+                        // IconButton(
+                        //   onPressed: () {
+                        //     Provider.of<FavoriteModel>(context, listen: false).add(items.items[index]);
+                        //
+                        //
+                        //   },
+                        //   icon: const Icon(Icons.favorite),
+                        // ),
                       ],
                     ),
                   ],
